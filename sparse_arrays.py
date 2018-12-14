@@ -22,6 +22,7 @@ for i in range(query_count):
 
 
 def matchingStrings(strings, queries):
+	query_count,string_count = len(queries),len(strings)
 	result = [0 for x in range(query_count)]
 	print (result)
 	for query in queries:
