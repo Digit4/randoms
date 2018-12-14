@@ -22,10 +22,12 @@ def dynamicArray(n, queries):
 	for query in queries:
 		a,x,y = query[0:3]
 		if (a == 1):
-			toBeAdded = queries[(x ^ lastAnswer) % n][-1]
 			seq[((x ^ lastAnswer) % n)].append(y)
 		elif (query[0] == 2):
-			pass
+			seqindex = ((x ^ lastAnswer) % n)
+			size = len(seq[seqindex])
+			lastAnswer = seq[seqindex][y%size]
+			print (lastAnswer)
 	return seq
 			
 print(dynamicArray(Q[0][0],Q[1:]))
