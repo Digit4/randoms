@@ -8,8 +8,8 @@ inp = """2 5
 
 n = inp.split("\n")
 n.pop()
-j = []
+Q = []
 for i in n:
-    j.append(list(map(int, i.split(" "))))
+    Q.append(list(map(int, i.split(" "))))
 
-
+lastAnswer = 0
