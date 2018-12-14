@@ -27,6 +27,6 @@ def dynamicArray(n, queries):
 			seqindex = ((x ^ lastAnswer) % n)
 			size = len(seq[seqindex])
 			lastAnswer = seq[seqindex][y%size]
-			print (lastAnswer)
+			yield str(lastAnswer)
 			
 dynamicArray(Q[0][0],Q[1:])
