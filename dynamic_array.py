@@ -16,17 +16,16 @@ for i in n:
 
 def dynamicArray(n, queries):
 	lastAnswer = 0
-	S0,S1 = [],[]
+	seq = []
+	for x in range(n):
+		seq.append([])
 	for query in queries:
-		if (query[0] == 1):
-			if (query[1] == 0):
-				S0.append(queries[(query[1] ^ lastAnswer) % n][-1])
-			else:
-				S1.append(queries[(query[1] ^ lastAnswer) % n][-1])
+		a,x,y = query[0:3]
+		if (a == 1):
+			toBeAdded = queries[(x ^ lastAnswer) % n][-1]
+			seq[((x ^ lastAnswer) % n)].append(y)
 		elif (query[0] == 2):
-			y = queries[(query[1] ^ lastAnswer) % n][-1]
-			lastAnswer = y % len(queries)
-			print(lastAnswer)
-	return [S0,S1]
+			pass
+	return seq
 			
 print(dynamicArray(Q[0][0],Q[1:]))
