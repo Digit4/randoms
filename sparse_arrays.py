@@ -1,3 +1,14 @@
+inpu = """4
+aba
+baba
+aba
+xzxb
+3
+aba
+xzxb
+ab
+"""
+
 inp = """100
 lekgdisnsbfdzpqlkg
 eagemhdygyv
@@ -212,15 +223,27 @@ queries = []
 for i in range(query_count):
 	queries.append(inp[i + string_count + 2])
 
-print (query_count,string_count)
+print(query_count, string_count)
+
+
+def queryProcessed(ele, arr):
+	for var in arr:
+		if (ele == var):
+			return True
+	return False
+
 
 def matchingStrings(strings, queries):
 	query_count,string_count = len(queries),len(strings)
 	result = [0 for x in range(query_count)]
-	for query in queries:
+	for i,query in enumerate(queries):
 		for string in strings:
 			if (query == string):
-				ind = queries.index(query)
-				result[ind] += 1
+				if (not queryProcessed(query, queries[:i])):
+					ind = i
+					result[ind] += 1
+				else:
+					ind = queries.index(query)
+					result[i] = result[ind]
 	return (result)
 print(matchingStrings(strings,queries))
