@@ -35,13 +35,13 @@ def budgetPlanner(inputLine):
 	for keyboard in keyboards:
 		for drive in drives:
 			tot = keyboard+drive
-			if tot < budget:
+			if tot <= budget:
 				retval.append(tot)
 			#print (drive,end=".\n")
 	retval.sort(reverse=True)
- 	#print (retval,keyboards,drives)
+	# print (retval[0])
 	for values in retval:
-		if (values < budget):
+		if (values <= budget):
 			return (values)
 	return -1
 
