@@ -5,7 +5,8 @@ site = "https://srgrafo.com"
 delimiter = ";"
 comic = "/comic/"
 folder_name = "Rimworld_Tales"
-path_to_folder = "/home/dhavalp/Comics"#os.path.abspath('.')
+# Just replace the below line with the path you wish to store your rimworld_tales folder at
+path_to_folder = os.path.abspath('.')
 comic_save_directory = os.path.join(path_to_folder, folder_name)
 
 
@@ -55,4 +56,5 @@ def download_previous():
         
     database.close()
 
-download_previous()
+if __name__ == "__main__":
+    download_previous()
