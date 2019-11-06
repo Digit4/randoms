@@ -10,6 +10,11 @@ path_to_folder = os.path.abspath('.')
 comic_save_directory = os.path.join(path_to_folder, folder_name)
 
 
+def set_db_location(address):
+    db_name = "rimworldtales.csv"
+    db_loc = os.path.join(address, db_name)
+    return db_loc
+
 
 def download_previous():
     if not os.path.exists(comic_save_directory):
@@ -17,8 +22,7 @@ def download_previous():
 
 
     # save all the downloaded files in a database
-    db_name = "rimworldtales.csv"
-    db_loc = os.path.join(comic_save_directory, db_name)
+    db_loc = set_db_location(comic_save_directory)
     database = open(db_loc,'w')
     db_header =  "Sr. No.;Title;URL;Suggested_Music"
 
